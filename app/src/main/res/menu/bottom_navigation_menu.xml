@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- bottom_navigation_menu.xml -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/page_home"
+        android:icon="@drawable/ic_home"
+        android:title="홈" />
+    <item
+        android:id="@+id/page_today"
+        android:icon="@drawable/ic_today"
+        android:title="오늘의 약" />
+    <item
+        android:id="@+id/page_records"
+        android:icon="@drawable/ic_records"
+        android:title="기록 관리" />
+    <item
+        android:id="@+id/page_profile"
+        android:icon="@drawable/ic_profile"
+        android:title="내 정보" />
+</menu>
