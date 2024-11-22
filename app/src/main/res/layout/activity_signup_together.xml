@@ -1,10 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Signup_togetherActivity">
+    android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:id="@+id/signup_logo"
+        android:layout_width="135dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_android_black_24dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="131dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/signup_logo"
+        android:layout_marginTop="93dp">
+
+        <android.widget.Button
+            android:id="@+id/signup_leftbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="36dp"
+            android:layout_marginRight="30dp"
+            android:text="보호자"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            android:background="@drawable/signup_btn_ok"/>
+
+        <android.widget.Button
+            android:id="@+id/signup_rightbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="고령자"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            android:background="@drawable/signup_btn_ok"/>
+    </LinearLayout>
+
+</RelativeLayout>
