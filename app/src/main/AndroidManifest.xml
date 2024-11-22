@@ -13,6 +13,12 @@
         android:theme="@style/Theme.AlwaysYoung2024_FE"
         tools:targetApi="31">
         <activity
+            android:name=".Signup_togetherActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Signup_aloneActivity"
+            android:exported="false" />
+        <activity
             android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>

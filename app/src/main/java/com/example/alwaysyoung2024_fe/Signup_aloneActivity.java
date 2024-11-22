@@ -12,25 +12,24 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class LoginActivity extends AppCompatActivity {
+public class Signup_aloneActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_signup_alone);
 
-        Button login_button1 = findViewById(R.id.login_alone_button);
-        Button login_button2 = findViewById(R.id.login_together_button);
+        Button btn1 = findViewById(R.id.signup_button1);
+        Button btn2 = findViewById(R.id.signup_button2);
 
-        login_button1.setOnClickListener(new View.OnClickListener() {
+        btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this, Signup_aloneActivity.class);
-                startActivity(intent);
+
             }
         });
 
-        login_button2.setOnClickListener(new View.OnClickListener() {
+        btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
