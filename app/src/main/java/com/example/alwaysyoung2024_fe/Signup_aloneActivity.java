@@ -24,15 +24,16 @@ public class Signup_aloneActivity extends AppCompatActivity {
 
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view) {  // 로그인 창 + 서버 인증
 
             }
         });
 
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-
+            public void onClick(View view) {  // 회원가입 창으로 이동
+                Intent intent = new Intent(Signup_aloneActivity.this, Signup_inputActivity.class);
+                startActivity(intent);
             }
         });
     }
