@@ -2,7 +2,10 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="background_color">#FFFFFF</color> <!-- 흰색 배경 -->
     <!-- colors.xml -->
     <color name="bottom_nav_default">#C5C5C5</color>
     <color name="bottom_nav_selected">#50555C</color>
+
+    <color name="ripple_color">#FFCCCCCC</color> <!-- 클릭 효과 색 -->
 </resources>
