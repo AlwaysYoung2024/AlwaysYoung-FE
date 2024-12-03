@@ -1,15 +1,113 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TodayFragment">
+    android:background="@android:color/white">
 
-    <!-- TODO: Update blank fragment layout -->
+    <!-- 상단 타이틀 -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#FFFFFF"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/text_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="오늘의 약"
+        android:textSize="24sp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold" />
 
-</FrameLayout>
+    <!-- 병원 일정 텍스트 -->
+    <TextView
+        android:id="@+id/text_hospital_schedule"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_title"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="병원 일정"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold" />
+
+    <!-- 일정 없음 텍스트 -->
+    <TextView
+        android:id="@+id/text_no_schedule"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_hospital_schedule"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="일정이 없습니다"
+        android:textSize="16sp"
+        android:textColor="#808080" />
+
+    <!-- 일정 추가 버튼 -->
+    <android.widget.Button
+        android:id="@+id/button_add_schedule"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_below="@id/text_no_schedule"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/today_rectangle"
+        android:text="일정 추가"
+        android:textColor="@android:color/white"
+        android:textSize="16sp" />
+
+    <!-- 오늘 먹어야 하는 약 -->
+    <TextView
+        android:id="@+id/text_medicine_today"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button_add_schedule"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="오늘 먹어야 하는 약"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold" />
+
+    <!-- 약 없음 이미지와 텍스트 -->
+    <LinearLayout
+        android:id="@+id/layout_no_medicine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_medicine_today"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <!-- 약 이미지 -->
+        <ImageView
+            android:id="@+id/image_no_medicine"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@drawable/ic_medicine_placeholder" />
+
+        <!-- 텍스트 -->
+        <TextView
+            android:id="@+id/text_no_medicine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="등록된 약이 없어요"
+            android:textSize="16sp"
+            android:textColor="#808080" />
+    </LinearLayout>
+
+    <!-- 약 추가 버튼 -->
+    <android.widget.Button
+        android:id="@+id/button_add_medicine"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_below="@id/layout_no_medicine"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/today_rectangle"
+        android:text="약 추가"
+        android:textColor="@android:color/white"
+        android:textSize="16sp" />
+</RelativeLayout>
