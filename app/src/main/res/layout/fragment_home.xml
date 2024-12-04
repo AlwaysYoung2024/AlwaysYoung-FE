@@ -355,7 +355,7 @@
                             android:id="@+id/water_icon"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/ic_home_meal"/>
+                            android:background="@drawable/ic_home_water"/>
 
                         <TextView
                             android:layout_width="wrap_content"
