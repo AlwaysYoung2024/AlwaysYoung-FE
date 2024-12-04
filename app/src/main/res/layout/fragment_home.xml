@@ -1,48 +1,473 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#FFFFFF">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="253dp"
-        android:layout_gravity="top"
-        android:background="@drawable/home_rounded_corners">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/menuTitle"
-            style="@style/MenuTitleText"
-            android:text="홈" />
+        <!--초록색 바탕-->
+        <RelativeLayout
+            android:id="@+id/home_top_bar"
+            android:layout_width="match_parent"
+            android:layout_height="235dp"
+            android:layout_gravity="top"
+            android:background="@drawable/home_rounded_corners">
 
-        <TextView
-            android:id="@+id/dateText"
-            android:layout_width="wrap_content"
+            <!--홈 텍스트-->
+            <TextView
+                android:id="@+id/menuTitle"
+                style="@style/MenuTitleText"
+                android:text="홈" />
+
+            <!--날짜 텍스트-->
+            <TextView
+                android:id="@+id/dateText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/menuTitle"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="30dp"
+                android:text="목요일, 10월 4일"
+                android:textAlignment="center"
+                android:textColor="#000"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:layout_below="@+id/dateText"
+                android:orientation="horizontal">
+
+                <!--긴급호출버튼-->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/emergencyButton"
+                    android:layout_width="70dp"
+                    android:layout_height="90dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="30dp"
+                    android:text="긴급\n호출"
+                    android:textColor="#FFF"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:padding="0dp"
+                    android:lineSpacingExtra="0dp"
+                    android:maxLines="2"
+                    app:backgroundTint="@color/emergency_color"
+                    app:cornerRadius="4dp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="end"
+                    android:layout_toEndOf="@+id/emergencyButton"
+                    android:layout_alignParentEnd="true"
+                    android:paddingEnd="30dp"
+                    android:orientation="vertical">
+
+                    <!--이름-->
+                    <TextView
+                        android:id="@+id/name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:text="유연우님"
+                        android:textColor="#000"
+                        android:textSize="36sp"
+                        android:textStyle="bold"/>
+
+                    <!--건강관련멘트-->
+                    <TextView
+                        android:id="@+id/health_related_comments"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:text="오늘도 화이팅 하세요~"
+                        android:textColor="#000"
+                        android:textSize="24sp"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="21dp"
-            android:layout_below="@+id/menuTitle"
-            android:text="목요일, 10월 4일"
-            android:textAlignment="center"
-            android:textColor="#000"
-            android:textSize="30sp"
-            android:textStyle="bold" />
+            android:layout_below="@+id/home_top_bar"
+            android:fitsSystemWindows="true">
 
-        <Button
-            android:id="@+id/emergencyButton"
-            android:layout_width="70dp"
-            android:layout_height="90dp"
-            android:background="@drawable/home_emergency_button"
-            android:layout_below="@+id/dateText"
-            android:layout_marginStart="39dp"
-            android:layout_alignParentStart="true"
-            android:text="긴급\n호출"
-            android:textColor="#FFF"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+            <!--하얀바탕-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="25dp"
+                android:layout_below="@+id/home_top_bar"
+                android:orientation="vertical"
+                android:paddingBottom="60dp">
 
+                    <!--오늘 현황 텍스트-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="오늘 현황"
+                        android:textStyle="bold"
+                        android:textSize="24sp"
+                        android:textColor="#000"
+                        android:layout_marginStart="25dp"/>
 
+                    <!--오늘 현황 막대-->
+                    <!--나중에 weight속성으로 수정-->
+                    <RelativeLayout
+                        android:id="@+id/currentStateBar"
+                        android:layout_width="368dp"
+                        android:layout_height="32dp"
+                        android:background="@drawable/home_statebar_corners"
+                        android:layout_marginTop="15dp"
+                        android:layout_gravity="center">
+
+                        <View
+                            android:id="@+id/currentStateFillBar"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentStart="true"
+                            android:background="@drawable/home_statefillbar"/>
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="368dp"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="25dp"
+                        android:layout_gravity="center"
+                        android:background="#898A8D"/>
+
+                <!--약 배너-->
+                <RelativeLayout
+                    android:id="@+id/medicine_banner"
+                    android:layout_width="372dp"
+                    android:layout_height="111dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="25dp"
+                    android:background="#F3FFFD"
+                    android:paddingHorizontal="25dp">
+
+                    <!--약 아이콘-->
+                    <RelativeLayout
+                        android:id="@+id/medicine"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true">
+                        <ImageView
+                            android:id="@+id/medicine_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/ic_home_medicine" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/medicine_icon"
+                            android:layout_centerHorizontal="true"
+                            android:text="약"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+
+                    <View
+                        android:id="@+id/medicine_vertical_line"
+                        android:layout_width="1dp"
+                        android:layout_height="95dp"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/medicine"
+                        android:layout_marginStart="20dp"
+                        android:background="#77E0D2"/>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_toEndOf="@+id/medicine_vertical_line"
+                        android:layout_marginStart="25dp">
+                        <TextView
+                            android:id="@+id/medicine_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="12:00 위장약"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginBottom="10dp"
+                            android:paddingTop="10dp"
+                            android:textSize="24sp"
+                            android:textColor="#000"
+                            android:letterSpacing="0.2"/>
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/medicine_check_button"
+                            android:layout_width="218dp"
+                            android:layout_height="47dp"
+                            android:layout_below="@+id/medicine_text"
+                            android:layout_centerHorizontal="true"
+                            android:text="약 먹기"
+                            android:textSize="24sp"
+                            android:textStyle="bold"
+                            android:textColor="#3D4146"
+                            android:paddingTop="1dp"
+                            app:cornerRadius="8dp"
+                            app:backgroundTint="@color/main_color" />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <!--밥 배너-->
+                <RelativeLayout
+                    android:id="@+id/meal_banner"
+                    android:layout_width="372dp"
+                    android:layout_height="111dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="25dp"
+                    android:background="#F3FFFD"
+                    android:paddingHorizontal="25dp">
+
+                    <!--밥 아이콘-->
+                    <RelativeLayout
+                        android:id="@+id/meal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true">
+
+                        <ImageView
+                            android:id="@+id/meal_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/ic_home_meal"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/meal_icon"
+                            android:layout_centerHorizontal="true"
+                            android:text="밥"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+
+                    <View
+                        android:id="@+id/meal_vertical_line"
+                        android:layout_width="1dp"
+                        android:layout_height="95dp"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/meal"
+                        android:layout_marginStart="20dp"
+                        android:background="#77E0D2"/>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_toEndOf="@+id/meal_vertical_line"
+                        android:layout_marginStart="25dp">
+                        <RelativeLayout
+                            android:id="@+id/meal_state"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="10dp">
+                            <RelativeLayout
+                                android:id="@+id/meal_state_bar"
+                                android:layout_width="218dp"
+                                android:layout_height="21dp"
+                                android:layout_centerHorizontal="true"
+                                android:background="@drawable/home_statebar_corners">
+
+                                <View
+                                    android:id="@+id/meal_state_fill_Bar"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_alignParentStart="true"
+                                    android:background="@drawable/home_statefillbar"/>
+                            </RelativeLayout>
+
+                            <TextView
+                                android:id="@+id/dinner"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/meal_state_bar"
+                                android:text="저녁"
+                                android:textSize="15sp"
+                                android:layout_alignParentEnd="true"/>
+
+                            <TextView
+                                android:id="@+id/lunch"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/meal_state_bar"
+                                android:layout_toLeftOf="@+id/dinner"
+                                android:text="점심"
+                                android:textSize="15sp"
+                                android:layout_marginEnd="45dp"/>
+
+                            <TextView
+                                android:id="@+id/breakfast"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/meal_state_bar"
+                                android:layout_toLeftOf="@+id/lunch"
+                                android:text="아침"
+                                android:textSize="15sp"
+                                android:layout_marginEnd="45dp"/>
+
+                        </RelativeLayout>
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/meal_check_button"
+                            android:layout_width="218dp"
+                            android:layout_height="47dp"
+                            android:layout_below="@+id/meal_state"
+                            android:layout_centerHorizontal="true"
+                            android:text="아침 밥 먹기"
+                            android:textSize="24sp"
+                            android:textStyle="bold"
+                            android:textColor="#3D4146"
+                            android:paddingTop="1dp"
+                            app:cornerRadius="8dp"
+                            app:backgroundTint="@color/main_color"/>
+
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <!--물 배너-->
+                <RelativeLayout
+                    android:id="@+id/water_banner"
+                    android:layout_width="372dp"
+                    android:layout_height="111dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="25dp"
+                    android:background="#F3FFFD"
+                    android:paddingHorizontal="25dp">
+
+                    <!--물 아이콘-->
+                    <RelativeLayout
+                        android:id="@+id/water"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true">
+
+                        <ImageView
+                            android:id="@+id/water_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/ic_home_meal"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/water_icon"
+                            android:layout_centerHorizontal="true"
+                            android:text="물"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+
+                    <View
+                        android:id="@+id/water_vertical_line"
+                        android:layout_width="1dp"
+                        android:layout_height="95dp"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/water"
+                        android:layout_marginStart="20dp"
+                        android:background="#77E0D2"/>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_toEndOf="@+id/water_vertical_line"
+                        android:layout_marginStart="25dp">
+                        <RelativeLayout
+                            android:id="@+id/water_state"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="10dp">
+                            <RelativeLayout
+                                android:id="@+id/water_state_bar"
+                                android:layout_width="218dp"
+                                android:layout_height="21dp"
+                                android:layout_centerHorizontal="true"
+                                android:background="#FFFFFF">
+
+                                <View
+                                    android:id="@+id/water_state_fill_bar"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_alignParentStart="true"
+                                    android:background="@drawable/home_statefillbar"/>
+                            </RelativeLayout>
+
+                            <TextView
+                                android:id="@+id/five"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/water_state_bar"
+                                android:text="5잔"
+                                android:textSize="15sp"
+                                android:layout_alignParentEnd="true"/>
+
+                            <TextView
+                                android:id="@+id/four"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/water_state_bar"
+                                android:layout_toStartOf="@+id/five"
+                                android:text="4잔"
+                                android:textSize="15sp"
+                                android:layout_marginEnd="20dp"/>
+
+                            <TextView
+                                android:id="@+id/three"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/water_state_bar"
+                                android:layout_toLeftOf="@+id/four"
+                                android:text="3잔"
+                                android:textSize="15sp"
+                                android:layout_marginEnd="20dp"/>
+
+                            <TextView
+                                android:id="@+id/two"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/water_state_bar"
+                                android:layout_toLeftOf="@+id/three"
+                                android:text="2잔"
+                                android:textSize="15sp"
+                                android:layout_marginEnd="20dp"/>
+
+                            <TextView
+                                android:id="@+id/one"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/water_state_bar"
+                                android:layout_toLeftOf="@+id/two"
+                                android:text="1잔"
+                                android:textSize="15sp"
+                                android:layout_marginEnd="20dp"/>
+
+                        </RelativeLayout>
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/water_check_button"
+                            android:layout_width="218dp"
+                            android:layout_height="47dp"
+                            android:layout_below="@+id/water_state"
+                            android:layout_centerHorizontal="true"
+                            android:text="물 마시기"
+                            android:textSize="24sp"
+                            android:textStyle="bold"
+                            android:textColor="#3D4146"
+                            android:paddingTop="1dp"
+                            app:cornerRadius="8dp"
+                            app:backgroundTint="@color/main_color"/>
+
+                    </RelativeLayout>
+                </RelativeLayout>
+            </LinearLayout>
+        </ScrollView>
     </RelativeLayout>
-
-</FrameLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

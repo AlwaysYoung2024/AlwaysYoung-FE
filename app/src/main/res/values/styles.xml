@@ -11,5 +11,25 @@
         <item name="android:textAlignment">center</item>
         <item name="android:lineHeight">22sp</item>
     </style>
+    
+    <style name="backButton_Text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">뒤로가기</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:textColor">#000</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+    </style>
+    
+    <style name="backButton_Arrow">
+        <item name ="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:src">@drawable/ic_arrow_back</item>
+        <item name="android:layout_marginTop">19dp</item>
+        <item name="android:layout_marginStart">5dp</item>
+    </style>
 </resources>
 
