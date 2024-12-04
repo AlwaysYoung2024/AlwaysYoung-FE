@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/backButtonContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            style="@style/backButton_Arrow"/>
+        <TextView
+            style="@style/backButton_Text"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/emergencyContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true">
+
+        <ImageView
+            android:id="@+id/embulance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_emergency"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="120dp"/>
+
+        <TextView
+            android:id="@+id/emergencytext1"
+            android:layout_below="@+id/embulance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="긴급호출"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:textSize="48sp"/>
+
+        <TextView
+            android:id="@+id/emergencytext2"
+            android:layout_below="@+id/emergencytext1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-5dp"
+            android:text="하시겠습니까?"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:textSize="40sp"/>
+
+        <TextView
+            android:id="@+id/emergencytext3"
+            android:layout_below="@+id/emergencytext2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-5dp"
+            android:text="(10초 후 자동호출)"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:textSize="24sp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/emergencyContainer"
+        android:layout_marginTop="20dp"
+        android:gravity="center">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/callBtn"
+            android:layout_width="174dp"
+            android:layout_height="122dp"
+            android:layout_marginRight="20dp"
+            android:text="호출"
+            android:textSize="48sp"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:backgroundTint="@color/main_color"
+            app:cornerRadius="8dp"
+            app:strokeWidth="2dp"
+            app:strokeColor="@color/main_stroke_color"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/cancelBtn"
+            android:layout_toEndOf="@+id/callBtn"
+            android:layout_width="174dp"
+            android:layout_height="122dp"
+            android:text="취소"
+            android:textSize="48sp"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:backgroundTint="@color/main_gray_color"
+            app:cornerRadius="8dp"
+            app:strokeWidth="2dp"
+            app:strokeColor="@color/gray_stroke_color"
+            />
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -289,7 +289,7 @@ public class HomeFragment extends Fragment {
                 currentTotalStep++;
                 currentWaterStep++;
                 if(currentWaterStep >= 5) {
-                    currentWaterStep = mealSteps.length;
+                    currentWaterStep = 5;
                     water_check_btn.setText("섭취 완료");
                     water_check_btn.setEnabled(false);
                     water_check_btn.setBackgroundTintList(getResources().getColorStateList(R.color.home_button_clicked_color));
