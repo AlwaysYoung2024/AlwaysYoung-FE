@@ -24,7 +24,9 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
         // 초기화 시 기본 프래그먼트를 HomeFragment로 설정
-        transferTo(HomeFragment.newInstance("param1", "param2"));
+        if(savedInstanceState == null) {
+            transferTo(new HomeFragment());
+        }
 
         // 네비게이션 아이템 선택 리스너
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
@@ -34,25 +36,25 @@ public class MainActivity extends AppCompatActivity {
 
                 if (itemId == R.id.page_home) {
                     // 홈 화면 프래그먼트
-                    transferTo(HomeFragment.newInstance("param1", "param2"));
+                    transferTo(new HomeFragment());
                     return true;
                 }
 
                 if (itemId == R.id.page_today) {
                     // 오늘의 약 프래그먼트
-                    transferTo(TodayFragment.newInstance("param1", "param2"));
+                    transferTo(new TodayFragment());
                     return true;
                 }
 
                 if (itemId == R.id.page_records) {
                     // 기록 관리 프래그먼트
-                    transferTo(RecordsFragment.newInstance("param1", "param2"));
+                    transferTo(new RecordsFragment());
                     return true;
                 }
 
                 if (itemId == R.id.page_profile) {
                     // 내 정보 프래그먼트
-                    transferTo(ProfileFragment.newInstance("param1", "param2"));
+                    transferTo(new ProfileFragment());
                     return true;
                 }
 
