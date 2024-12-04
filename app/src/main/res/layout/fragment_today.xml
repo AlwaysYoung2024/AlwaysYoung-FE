@@ -21,21 +21,32 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:text="병원 일정"
-        android:textSize="18sp"
+        android:textSize="24sp"
         android:textColor="@android:color/black"
         android:textStyle="bold" />
 
-    <!-- 일정 없음 텍스트 -->
-    <TextView
-        android:id="@+id/text_no_schedule"
-        android:layout_width="wrap_content"
+    <!-- 병원 일정 레이아웃 -->
+    <LinearLayout
+        android:id="@+id/layout_hospital_schedule"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/text_hospital_schedule"
         android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginTop="8dp"
-        android:text="일정이 없습니다"
-        android:textSize="16sp"
-        android:textColor="#808080"/>
+        android:background="#F3FFFD"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- 일정 없음 텍스트 -->
+        <TextView
+            android:id="@+id/text_no_schedule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="일정이 없습니다"
+            android:textSize="16sp"
+            android:textColor="#808080" />
+    </LinearLayout>
 
     <!-- 일정 추가 버튼 -->
     <android.widget.Button
@@ -44,12 +55,13 @@
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_below="@id/text_no_schedule"
+        android:layout_below="@id/layout_hospital_schedule"
         android:layout_marginTop="16dp"
         android:background="@drawable/today_rectangle"
         android:text="일정 추가"
-        android:textColor="@android:color/white"
-        android:textSize="16sp" />
+        android:textColor="#3D4146"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <!-- 오늘 먹어야 하는 약 -->
     <TextView
@@ -60,7 +72,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:text="오늘 먹어야 하는 약"
-        android:textSize="18sp"
+        android:textSize="24sp"
         android:textColor="@android:color/black"
         android:textStyle="bold" />
 
@@ -70,12 +82,12 @@
     <LinearLayout
         android:id="@+id/layout_no_medicine"
         android:layout_width="match_parent"
-        android:layout_height="280dp"
+        android:layout_height="315dp"
+        android:layout_below="@id/text_medicine_today"
         android:layout_centerInParent="true"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="13dp"
         android:layout_marginEnd="16dp"
-        android:layout_below="@id/text_medicine_today"
-        android:layout_marginTop="15dp"
         android:background="#F3FFFD"
         android:gravity="center"
         android:orientation="vertical">
@@ -108,6 +120,7 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/today_rectangle"
         android:text="약 추가"
-        android:textColor="@android:color/white"
-        android:textSize="16sp" />
+        android:textColor="#3D4146"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 </RelativeLayout>

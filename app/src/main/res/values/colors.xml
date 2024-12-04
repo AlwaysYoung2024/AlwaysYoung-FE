@@ -8,4 +8,14 @@
     <color name="bottom_nav_selected">#50555C</color>
 
     <color name="ripple_color">#FFCCCCCC</color> <!-- 클릭 효과 색 -->
+
+    <color name="main_color">#51E1CE</color>
+
+    <color name="emergency_color">#FF0A0A</color>
+
+    <color name="main_gray_color">#D9D9D9</color>
+    <color name="main_stroke_color">#2CD1BB</color>
+    <color name="gray_stroke_color">#A7A7A7</color>
+    <color name="home_button_clicked_color">#898A8D</color>
+    <color name="home_button_click_text_color">#3D4146</color>
 </resources>
