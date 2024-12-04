@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:background="@drawable/home_dialog_corners">
+
+    <TextView
+        android:id="@+id/dialog_water_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingTop="20dp"
+        android:text="알림"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginStart="10dp"/>
+
+    <TextView
+        android:id="@+id/dialog_water_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="물을\n드셨나요?"
+        android:textSize="32sp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/black"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/yes_button"
+            android:layout_width="110dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="10dp"
+            android:text="네"
+            android:textStyle="bold"
+            android:backgroundTint="@color/main_color"
+            android:textColor="@android:color/black"
+            app:cornerRadius="16dp"
+            app:strokeColor="@color/main_stroke_color"
+            app:strokeWidth="2dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/no_button"
+            android:layout_width="110dp"
+            android:layout_height="40dp"
+            android:layout_toRightOf="@+id/yes_button"
+            android:layout_marginTop="16dp"
+            android:text="아니오"
+            android:textStyle="bold"
+            android:backgroundTint="@color/main_gray_color"
+            android:textColor="@android:color/black"
+            app:cornerRadius="16dp"
+            app:strokeColor="@color/gray_stroke_color"
+            app:strokeWidth="2dp"/>
+    </RelativeLayout>
+</LinearLayout>
