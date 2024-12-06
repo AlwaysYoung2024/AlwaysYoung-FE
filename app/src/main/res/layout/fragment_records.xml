@@ -64,7 +64,7 @@
                 android:id="@+id/days"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="15dp"
                 android:gravity="center"
                 android:text="일월화수목금토"
                 android:textSize="20sp"
@@ -78,29 +78,29 @@
                 android:id="@+id/calendarGridView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="8dp"
                 android:gravity="center"
                 android:horizontalSpacing="4dp"
                 android:numColumns="7"
                 android:padding="8dp"
-                android:paddingBottom="60dp"
-                android:verticalSpacing="8dp" />
+                android:verticalSpacing="8dp"/>
 
         </RelativeLayout>
+    </LinearLayout>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/hospital_schedule_button"
             android:layout_width="346dp"
             android:layout_height="50dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="30dp"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="10dp"
             android:text="병원 일정 자세히 보기"
             android:textSize="24sp"
             android:textStyle="bold"
             android:textColor="#3D4146"
-            android:paddingTop="1dp"
+            android:paddingTop="0dp"
             app:cornerRadius="8dp"
             app:backgroundTint="@color/main_color" />
 
-    </LinearLayout>
+
 </FrameLayout>

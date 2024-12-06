@@ -118,6 +118,7 @@ public class RecordsFragment extends Fragment {
     private void loadRecordsForMonth(){
         AppDataManager appDataManager = new AppDataManager(requireContext());
         Calendar startDate = appDataManager.getStartDateAsCalendar();
+        Calendar today = Calendar.getInstance();
 
         int year = calendar.get(Calendar.YEAR);
         int month = calendar.get(Calendar.MONTH)+1;
@@ -141,8 +142,26 @@ public class RecordsFragment extends Fragment {
         for(int day = 1; day <= daysInMonth; day++){
             dates.add(String.valueOf(day));
 
-            int statePercentage = (day * 10) % 100;
-            stateColors.add(statePercentage);
+            // 동그라미 표시 여부 결정
+            Calendar currentDay = Calendar.getInstance();
+            currentDay.set(year, month, day);
+
+            if (currentDay.get(Calendar.MONTH) == startDate.get(Calendar.MONTH)
+                    && currentDay.get(Calendar.YEAR) == startDate.get(Calendar.YEAR)
+                    && currentDay.compareTo(startDate) >= 0) {
+                // 시작 날짜와 같은 월, 시작 날짜 이후일 경우
+                int statePercentage = (day * 10) % 100;
+                stateColors.add(statePercentage);
+            } else if (currentDay.get(Calendar.MONTH) == today.get(Calendar.MONTH)
+                    && currentDay.get(Calendar.YEAR) == today.get(Calendar.YEAR)
+                    && currentDay.compareTo(today) <= 0) {
+                // 현재 날짜와 같은 월, 현재 날짜 이전일 경우
+                int statePercentage = (day * 10) % 100;
+                stateColors.add(statePercentage);
+            } else {
+                // 시작 날짜와 현재 날짜가 아닌 경우
+                stateColors.add(0);
+            }
         }
 
         CalendarAdapter adapter = new CalendarAdapter(requireContext(),dates, stateColors, startDate);
