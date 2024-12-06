@@ -13,7 +13,9 @@ import androidx.fragment.app.DialogFragment;
 
 public class AddMedicine_TimePickerFragment extends DialogFragment {
 
-    private NumberPicker numberPicker;
+    private NumberPicker dayPicker;
+    private NumberPicker frequencyPicker;
+    private NumberPicker timePicker;
     private Button confirmButton;
 
     @NonNull
@@ -25,21 +27,40 @@ public class AddMedicine_TimePickerFragment extends DialogFragment {
         LayoutInflater inflater = requireActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.fragment_add_medicine_time_picker, null);
 
-        numberPicker = view.findViewById(R.id.number_picker);
-        numberPicker.setMinValue(1);
-        numberPicker.setMaxValue(3);
-        numberPicker.setDisplayedValues(new String[]{"일에 한번", "주에 한번", "월에 한번"});
+        // 날짜 선택 (1~31)
+        dayPicker = view.findViewById(R.id.day_picker);
+        dayPicker.setMinValue(1);
+        dayPicker.setMaxValue(31);
 
+        // 빈도 선택 (일에 한 번, 주에 한 번, 월에 한 번)
+        frequencyPicker = view.findViewById(R.id.frequency_picker);
+        frequencyPicker.setMinValue(0);
+        frequencyPicker.setMaxValue(2);
+        frequencyPicker.setDisplayedValues(new String[]{"일에 한 번", "주에 한 번", "개월에 한 번"});
+
+        // 시간 선택 (00시~24시)
+        timePicker = view.findViewById(R.id.time_picker);
+        timePicker.setMinValue(0);
+        timePicker.setMaxValue(24);
+
+        // 확인 버튼 설정
         confirmButton = view.findViewById(R.id.confirm_button);
         confirmButton.setOnClickListener(v -> {
-            int value = numberPicker.getValue();
-            String frequency = numberPicker.getDisplayedValues()[value - 1];
+            int day = dayPicker.getValue();
+            String frequency = frequencyPicker.getDisplayedValues()[frequencyPicker.getValue()];
+            int time = timePicker.getValue();
+
+            // 전달할 데이터를 구성
+            String selectedValues = "\n" + time + "시, " + day + frequency;
+
             if (getTargetFragment() instanceof AddMedicine_FrequencyFragment) {
-                ((AddMedicine_FrequencyFragment) getTargetFragment()).setFrequency(frequency);
+                ((AddMedicine_FrequencyFragment) getTargetFragment()).setFrequency(selectedValues);
             }
-            dismiss();
+
+            dismiss(); // 다이얼로그 종료
         });
 
+        // 다이얼로그 취소 시 동작 설정
         dialog.setOnCancelListener(dialog1 -> {
             if (getTargetFragment() instanceof AddMedicine_FrequencyFragment) {
                 ((AddMedicine_FrequencyFragment) getTargetFragment()).clearRadioGroupSelection();

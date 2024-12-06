@@ -63,7 +63,7 @@ public class AddMedicine_FrequencyFragment extends Fragment {
 
     public void setFrequency(String frequency) {
         if (checkboxOther.isChecked()) {
-            checkboxOther.setText("기타 (" + frequency + ")");
+            checkboxOther.setText("기타 " + frequency + "");
         }
     }
 
