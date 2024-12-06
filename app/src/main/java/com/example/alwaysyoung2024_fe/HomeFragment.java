@@ -47,6 +47,9 @@ public class HomeFragment extends Fragment {
         FragmentHomeBinding binding = FragmentHomeBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
 
+        AppDataManager appDataManager = new AppDataManager(requireContext());
+        appDataManager.saveStartDateIfNeeded();
+
         medicineDataManager = new MedicineDataManager(requireContext());
         mealDataManager = new MealDataManager(requireContext());
 
