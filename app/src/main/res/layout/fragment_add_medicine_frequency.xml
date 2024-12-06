@@ -1,0 +1,55 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <!-- 세로 중앙에 위치하되, 왼쪽 정렬된 LinearLayout -->
+    <LinearLayout
+        android:id="@+id/verticalLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"
+        android:orientation="vertical"
+        android:layout_marginStart="16dp" >
+
+        <!-- 제목 TextView -->
+        <TextView
+            android:id="@+id/textViewLabel"
+            style="@style/MedicineLabelStyle"
+            android:text="하루에 몇 번 먹나요?"
+            android:layout_above="@+id/medicineNameInput"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="0dp"/>
+
+        <!-- 체크박스: 아침 / 점심 / 저녁 -->
+        <CheckBox
+            android:id="@+id/checkboxThrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="  아침 / 점심 / 저녁"
+            android:textSize="33dp"
+            android:buttonTint="@color/checkbox_color"
+            android:layout_marginBottom="16dp" />
+
+        <!-- 체크박스: 아침 / 저녁 -->
+        <CheckBox
+            android:id="@+id/checkboxTwice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="  아침 / 저녁"
+            android:textSize="33dp"
+            android:buttonTint="@color/checkbox_color"
+            android:layout_marginBottom="16dp" />
+
+        <!-- 체크박스: 기타 -->
+        <CheckBox
+            android:id="@+id/checkboxOther"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="  기타"
+            android:textSize="33dp"
+            android:buttonTint="@color/checkbox_color" />
+    </LinearLayout>
+</RelativeLayout>
