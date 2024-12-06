@@ -1,0 +1,17 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 상단 영역 -->
+    <item>
+        <shape>
+            <solid android:color="#FFFFFF" /> <!-- 흰색 -->
+            <corners android:radius="16dp" /> <!-- 둥근 모서리 -->
+        </shape>
+    </item>
+
+    <!-- 하단 영역 -->
+    <item android:top="60dp"> <!-- 상단 60dp 아래부터 -->
+        <shape>
+            <solid android:color="#B2F5EA" /> <!-- 하늘색 -->
+            <corners android:bottomLeftRadius="16dp" android:bottomRightRadius="16dp" />
+        </shape>
+    </item>
+</layer-list>
