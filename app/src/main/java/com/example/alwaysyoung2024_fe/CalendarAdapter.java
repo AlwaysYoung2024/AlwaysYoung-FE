@@ -51,32 +51,24 @@ public class CalendarAdapter extends BaseAdapter {
         TextView dayText = convertView.findViewById(R.id.tvDay);
         View circleBackground = convertView.findViewById(R.id.circleBackground);
 
+        // 기본값으로 초기화
+        circleBackground.setVisibility(View.GONE);
+        dayText.setText("");
 
-        // 날짜 표시
+        if (!dates.get(position).isEmpty()) {
+            dayText.setText(dates.get(position));
 
-        dayText.setText(dates.get(position));
-
-        // 상태에 따라 배경색 변경
-        if(!dates.get(position).isEmpty()){
-            int day = Integer.parseInt(dates.get(position));
-            Calendar currentDay = (Calendar) startDate.clone();
-            currentDay.set(Calendar.DAY_OF_MONTH,day);
-
-            if(currentDay.after(today)){
-                circleBackground.setVisibility(View.GONE); // 미래 날짜는 동그라미 표시 안 함
-            } else if (currentDay.before(startDate)) {
-                circleBackground.setVisibility(View.GONE); // 가입 이전 날짜는 동그라미 표시 안 함
-            } else{
-                circleBackground.setVisibility(View.VISIBLE); // 현재 날짜 범위 내에서만 동그라미 표시
+            if (stateColors.get(position) > 0) {
+                // 동그라미 표시
+                circleBackground.setVisibility(View.VISIBLE);
 
                 int statePercentage = stateColors.get(position);
                 int alpha = 50 + (statePercentage * 205 / 100);
                 GradientDrawable background = (GradientDrawable) circleBackground.getBackground();
-                background.setColor(Color.argb(alpha,0,128,0));
+                background.setColor(Color.argb(alpha, 0, 128, 0));
             }
-        } else {
-            circleBackground.setVisibility(View.GONE); // 빈 날짜 칸 처리
         }
+
 
         return convertView;
     }

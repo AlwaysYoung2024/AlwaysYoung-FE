@@ -168,23 +168,15 @@ public class RecordsFragment extends Fragment {
         for (int day = 1; day <= daysInMonth; day++) {
             dates.add(String.valueOf(day));
 
-            // 동그라미 색상 설정: 앱 시작 날짜부터 현재 날짜까지만
-            boolean isWithinRange = false;
-            for (int i = 0; i < allDates.size(); i++) {
-                // 저장된 날짜와 현재 날짜 비교
-                String[] dateParts = allDates.get(i).split("-");
-                int year = Integer.parseInt(dateParts[0]);
-                int month = Integer.parseInt(dateParts[1]);
-                int date = Integer.parseInt(dateParts[2]);
+            // 동그라미 색상 설정
+            String currentDateStr = String.format(Locale.KOREA, "%04d-%02d-%02d", currentYear, currentMonth, day);
+            int index = allDates.indexOf(currentDateStr);
 
-                if (year == currentYear && month == currentMonth && date == day) {
-                    isWithinRange = true;
-                    stateColors.add(allStateColors.get(i));
-                    break;
-                }
-            }
-
-            if (!isWithinRange) {
+            if (index != -1) {
+                // 현재 날짜가 allDates에 포함되어 있는 경우
+                stateColors.add(allStateColors.get(index));
+            } else {
+                // 현재 날짜가 allDates에 포함되어 있지 않은 경우
                 stateColors.add(0); // 동그라미가 없는 경우 기본값으로 설정
             }
         }
