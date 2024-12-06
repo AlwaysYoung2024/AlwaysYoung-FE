@@ -113,58 +113,85 @@ public class RecordsFragment extends Fragment {
     private void updateMonth(){
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 MM월", Locale.KOREAN);
         monthTextView.setText(sdf.format(calendar.getTime()));
+        loadRecordsForMonth();
     }
 
-    private void loadRecordsForMonth(){
+    private void loadRecordsForMonth() {
         AppDataManager appDataManager = new AppDataManager(requireContext());
         Calendar startDate = appDataManager.getStartDateAsCalendar();
         Calendar today = Calendar.getInstance();
 
-        int year = calendar.get(Calendar.YEAR);
-        int month = calendar.get(Calendar.MONTH)+1;
+        List<String> allDates = new ArrayList<>();
+        List<Integer> allStateColors = new ArrayList<>();
 
-        //날짜 리스트 생성
+        // 시작 날짜로부터 오늘까지 모든 데이터를 채움
+        Calendar currentDate = (Calendar) startDate.clone();
+        while (currentDate.compareTo(today) <= 0) {
+            // "년-월-일" 형식으로 날짜 저장
+            String date = String.format(Locale.KOREA, "%04d-%02d-%02d",
+                    currentDate.get(Calendar.YEAR),
+                    currentDate.get(Calendar.MONTH) + 1,
+                    currentDate.get(Calendar.DAY_OF_MONTH));
+            allDates.add(date);
+
+            // 상태 색상 퍼센트 계산
+            int statePercentage = (currentDate.get(Calendar.DAY_OF_MONTH) * 10) % 100;
+            allStateColors.add(statePercentage);
+
+            currentDate.add(Calendar.DAY_OF_MONTH, 1);
+        }
+
+        filterDataForCurrentMonth(allDates, allStateColors);
+    }
+
+
+    private void filterDataForCurrentMonth(List<String> allDates, List<Integer> allStateColors) {
         List<String> dates = new ArrayList<>();
         List<Integer> stateColors = new ArrayList<>();
 
-        //현재 달의 첫날 설정
-        calendar.set(Calendar.DAY_OF_MONTH,1);
-        int firstDayOfWeek = calendar.get(Calendar.DAY_OF_WEEK) - 1;
+        // 현재 화면의 년도와 월 가져오기
+        int currentYear = calendar.get(Calendar.YEAR);
+        int currentMonth = calendar.get(Calendar.MONTH) + 1;
+
+        // 현재 달의 첫째 날과 마지막 날 계산
+        calendar.set(Calendar.DAY_OF_MONTH, 1);
+        int firstDayOfWeek = calendar.get(Calendar.DAY_OF_WEEK) - 1; // 이전 달의 빈 칸 수
         int daysInMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
 
-        //빈 칸 채우기 (이전 달의 남은 칸)
-        for(int i=0; i < firstDayOfWeek;i++){
-            dates.add("");
-            stateColors.add(0);
+        // 빈 칸 채우기 (이전 달의 남은 칸)
+        for (int i = 0; i < firstDayOfWeek; i++) {
+            dates.add(""); // 빈 칸 추가
+            stateColors.add(0); // 빈 칸의 색상은 기본값으로 설정
         }
 
-        //현재 달 날짜 채우기
-        for(int day = 1; day <= daysInMonth; day++){
+        // 현재 달의 모든 날짜 추가
+        for (int day = 1; day <= daysInMonth; day++) {
             dates.add(String.valueOf(day));
 
-            // 동그라미 표시 여부 결정
-            Calendar currentDay = Calendar.getInstance();
-            currentDay.set(year, month, day);
+            // 동그라미 색상 설정: 앱 시작 날짜부터 현재 날짜까지만
+            boolean isWithinRange = false;
+            for (int i = 0; i < allDates.size(); i++) {
+                // 저장된 날짜와 현재 날짜 비교
+                String[] dateParts = allDates.get(i).split("-");
+                int year = Integer.parseInt(dateParts[0]);
+                int month = Integer.parseInt(dateParts[1]);
+                int date = Integer.parseInt(dateParts[2]);
 
-            if (currentDay.get(Calendar.MONTH) == startDate.get(Calendar.MONTH)
-                    && currentDay.get(Calendar.YEAR) == startDate.get(Calendar.YEAR)
-                    && currentDay.compareTo(startDate) >= 0) {
-                // 시작 날짜와 같은 월, 시작 날짜 이후일 경우
-                int statePercentage = (day * 10) % 100;
-                stateColors.add(statePercentage);
-            } else if (currentDay.get(Calendar.MONTH) == today.get(Calendar.MONTH)
-                    && currentDay.get(Calendar.YEAR) == today.get(Calendar.YEAR)
-                    && currentDay.compareTo(today) <= 0) {
-                // 현재 날짜와 같은 월, 현재 날짜 이전일 경우
-                int statePercentage = (day * 10) % 100;
-                stateColors.add(statePercentage);
-            } else {
-                // 시작 날짜와 현재 날짜가 아닌 경우
-                stateColors.add(0);
+                if (year == currentYear && month == currentMonth && date == day) {
+                    isWithinRange = true;
+                    stateColors.add(allStateColors.get(i));
+                    break;
+                }
+            }
+
+            if (!isWithinRange) {
+                stateColors.add(0); // 동그라미가 없는 경우 기본값으로 설정
             }
         }
 
-        CalendarAdapter adapter = new CalendarAdapter(requireContext(),dates, stateColors, startDate);
+        // 어댑터 설정
+        CalendarAdapter adapter = new CalendarAdapter(requireContext(), dates, stateColors, calendar);
         calendarGridView.setAdapter(adapter);
     }
+
 }
