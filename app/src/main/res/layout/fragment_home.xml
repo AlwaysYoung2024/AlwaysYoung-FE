@@ -277,7 +277,7 @@
                                 android:layout_width="218dp"
                                 android:layout_height="21dp"
                                 android:layout_centerHorizontal="true"
-                                android:background="@drawable/home_statebar_corners">
+                                android:background="@drawable/home_menu_statebar_corners">
 
                                 <View
                                     android:id="@+id/meal_state_fill_Bar"
@@ -391,7 +391,7 @@
                                 android:layout_width="218dp"
                                 android:layout_height="21dp"
                                 android:layout_centerHorizontal="true"
-                                android:background="#FFFFFF">
+                                android:background="@drawable/home_menu_statebar_corners">
 
                                 <View
                                     android:id="@+id/water_state_fill_bar"
