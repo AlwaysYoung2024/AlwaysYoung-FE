@@ -19,11 +19,16 @@
             android:name=".HospitalScheduleActivity"
             android:exported="false" />
         <activity
-            android:name=".AddScheduleActivity"
+            android:name=".AddSuccessActivity"
             android:exported="false" />
         <activity
+            android:name=".AddScheduleActivity"
+            android:exported="false"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
+        <activity
             android:name=".AddMedicineActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
         <activity
             android:name=".EmergencyActivity"
             android:exported="false" />
