@@ -64,26 +64,6 @@
 
     </RelativeLayout>
 
-<!--    <com.google.android.material.button.MaterialButton-->
-<!--        android:id="@+id/datePickerButton"-->
-<!--        android:layout_below="@+id/backButtonContainer"-->
-<!--        android:layout_width="210dp"-->
-<!--        android:layout_height="46dp"-->
-<!--        android:layout_marginTop="20dp"-->
-<!--        android:layout_marginStart="20dp"-->
-<!--        android:backgroundTint="@color/main_color"-->
-<!--        android:gravity="center_vertical"-->
-<!--        android:text="2024년 10월"-->
-<!--        android:textColor="#000"-->
-<!--        android:textSize="26sp"-->
-<!--        android:paddingTop="0dp"-->
-<!--        android:paddingEnd="10dp"-->
-<!--        app:cornerRadius="8dp"-->
-<!--        app:icon="@drawable/ic_arrow_down"-->
-<!--        app:iconTint="#000"-->
-<!--        app:iconSize="18dp"-->
-<!--        app:iconGravity="end"/>-->
-
 
     <ScrollView
         android:layout_below="@+id/datePickerContainer"

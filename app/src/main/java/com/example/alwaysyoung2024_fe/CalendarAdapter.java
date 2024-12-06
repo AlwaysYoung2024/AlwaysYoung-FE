@@ -1,6 +1,7 @@
 package com.example.alwaysyoung2024_fe;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 
 import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 public class CalendarAdapter extends BaseAdapter {
     private final Context context;
@@ -66,9 +68,23 @@ public class CalendarAdapter extends BaseAdapter {
                 int alpha = 50 + (statePercentage * 205 / 100);
                 GradientDrawable background = (GradientDrawable) circleBackground.getBackground();
                 background.setColor(Color.argb(alpha, 0, 128, 0));
+
+                circleBackground.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String clickedDate = dates.get(position); // 클릭된 날짜 가져오기
+                        Calendar selectedDate = (Calendar) startDate.clone();
+                        selectedDate.set(Calendar.DAY_OF_MONTH, Integer.parseInt(clickedDate));
+
+                        Intent intent = new Intent(context, DayRecordActivity.class);
+                        intent.putExtra("selectedDate",String.format(Locale.KOREAN,"%02d월 %02d일",
+                                selectedDate.get(Calendar.MONTH)+1,
+                                selectedDate.get(Calendar.DAY_OF_MONTH)));
+                        context.startActivity(intent);
+                    }
+                });
             }
         }
-
 
         return convertView;
     }
