@@ -10,10 +10,6 @@ import androidx.fragment.app.Fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
-
-//    https://material.io/components/bottom-navigation/android#using-bottom-navigation
-//    https://developer.android.com/training/basics/fragments/pass-data-between?hl=ko#java
-//    https://developer.android.com/guide/fragments/fragmentmanager?hl=ko
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -24,8 +20,8 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
         // 초기화 시 기본 프래그먼트를 HomeFragment로 설정
-        if(savedInstanceState == null) {
-            transferTo(new HomeFragment());
+        if (savedInstanceState == null) {
+            handleFragmentNavigation(getIntent()); // Intent 확인 후 초기 Fragment 설정
         }
 
         // 네비게이션 아이템 선택 리스너
@@ -76,5 +72,22 @@ public class MainActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragment_container, fragment)
                 .commit();
+    }
+
+    // AddSuccessActivity에서 돌아왔을 때의 Fragment 전환 처리
+    @Override
+    protected void onNewIntent(android.content.Intent intent) {
+        super.onNewIntent(intent);
+        handleFragmentNavigation(intent); // 새 Intent 확인
+    }
+
+    private void handleFragmentNavigation(android.content.Intent intent) {
+        if (intent != null && "TodayFragment".equals(intent.getStringExtra("navigateTo"))) {
+            // TodayFragment로 이동
+            transferTo(new TodayFragment());
+        } else {
+            // 기본적으로 HomeFragment를 표시
+            transferTo(new HomeFragment());
+        }
     }
 }

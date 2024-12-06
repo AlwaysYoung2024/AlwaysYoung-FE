@@ -1,0 +1,47 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <!-- 세로 중앙에 위치하되, 중앙 정렬된 LinearLayout -->
+    <LinearLayout
+        android:id="@+id/verticalLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical">
+
+        <!-- 약 추가 SuccessMessage TextView -->
+        <TextView
+            android:id="@+id/SuccessMessage1"
+            style="@style/MedicineLabelStyle"
+            android:text="약이"
+            android:layout_gravity="center"
+            android:layout_marginStart="0dp"/>
+        <TextView
+            android:id="@+id/SuccessMessage2"
+            style="@style/MedicineLabelStyle"
+            android:layout_below="@id/SuccessMessage1"
+            android:text="등록되었습니다!"
+            android:layout_gravity="center"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="-15dp"/>
+    </LinearLayout>
+
+    <!-- 하단의 확인 버튼 -->
+    <android.widget.Button
+        android:id="@+id/button_add_medicine"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="35dp"
+        android:background="@drawable/today_rectangle"
+        android:text="확  인"
+        android:textColor="#3D4146"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+</RelativeLayout>

@@ -1,0 +1,41 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@android:color/white">
+
+    <!-- 세로 중앙 정렬을 위한 가운데 더미 뷰 -->
+    <View
+        android:id="@+id/centerGuide"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_centerInParent="true"/>
+
+    <!-- TextView 추가 -->
+    <TextView
+        android:id="@+id/textViewLabel"
+        style="@style/MedicineLabelStyle"
+        android:text="어떤 약인가요?"
+        android:layout_above="@+id/medicineNameInput"
+        android:layout_alignParentStart="true"/>
+
+    <!-- EditText 스타일 변경 -->
+    <EditText
+        android:id="@+id/medicineNameInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="약 이름을 입력하세요"
+        android:layout_centerVertical="true"
+        android:inputType="text"
+        android:background="@drawable/edit_text_background"
+        android:padding="12dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:textColorHint="#808080"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"/>
+
+</RelativeLayout>
