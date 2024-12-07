@@ -59,7 +59,7 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/today_rectangle"
         android:text="일정 추가"
-        android:textColor="#3D4146"
+        android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold" />
 
@@ -141,7 +141,7 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/today_rectangle"
         android:text="약 추가"
-        android:textColor="#3D4146"
+        android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold" />
 </RelativeLayout>
