@@ -17,12 +17,12 @@
         android:id="@+id/textViewLabel"
         style="@style/MedicineLabelStyle"
         android:text="어느 병원인가요?"
-        android:layout_above="@+id/medicineNameInput"
+        android:layout_above="@+id/hospitalNameInput"
         android:layout_alignParentStart="true"/>
 
     <!-- EditText 스타일 변경 -->
     <EditText
-        android:id="@+id/medicineNameInput"
+        android:id="@+id/hospitalNameInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="병원 이름을 입력하세요"

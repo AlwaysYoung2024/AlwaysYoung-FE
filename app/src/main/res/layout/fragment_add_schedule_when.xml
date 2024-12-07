@@ -34,5 +34,17 @@
             android:onClick="showDateTimePicker"
             android:layout_marginTop="16dp"
             android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/selectedDateTimeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/datePickerButton"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginTop="80dp"
+            android:textSize="40sp"
+            android:textColor="#000" />
     </LinearLayout>
 </RelativeLayout>

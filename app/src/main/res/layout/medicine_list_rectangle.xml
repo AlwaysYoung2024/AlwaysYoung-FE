@@ -2,7 +2,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/medicine_list_rectangle"
+    android:background="@drawable/medicine_list_rectanglestyle"
     android:padding="16dp">
 
     <!-- 상단 컨테이너 -->
@@ -54,7 +54,7 @@
     </LinearLayout>
 
     <!-- 하단 버튼 -->
-    <Button
+    <android.widget.Button
         android:id="@+id/button_change_time"
         android:layout_width="match_parent"
         android:layout_height="48dp"
@@ -66,6 +66,5 @@
         android:textStyle="bold"
         android:gravity="center"
         android:background="@android:color/transparent"
-        android:backgroundTint="#B2F5EA"
-        android:cornerRadius="16dp" />
+        android:backgroundTint="#B2F5EA"/>
 </RelativeLayout>

@@ -6,7 +6,7 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class AddSuccess2ctivity extends AppCompatActivity {
+public class AddSuccess2Activity extends AppCompatActivity {
 
     private Button confirmButton; // '확인' 버튼 참조
 

@@ -60,8 +60,8 @@ public class AddScheduleActivity extends AppCompatActivity {
 
     // SuccessActivity로 이동
     public void navigateToAddSuccessActivity() {
-        // AddScheduleActivity 종료 후 AddSuccessActivity로 이동
-        Intent intent = new Intent(this, AddSuccessActivity.class);
+        // AddScheduleActivity 종료 후 AddSuccess2Activity로 이동
+        Intent intent = new Intent(this, AddSuccess2Activity.class);
         startActivity(intent);
         finish(); // 현재 AddScheduleActivity 종료
     }

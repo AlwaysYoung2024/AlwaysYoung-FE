@@ -1,12 +1,11 @@
 package com.example.alwaysyoung2024_fe;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.DatePicker;
-import android.widget.TimePicker;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -15,32 +14,40 @@ import androidx.fragment.app.Fragment;
 
 public class AddSchedule_WhenFragment extends Fragment {
 
-    private DatePicker datePicker;
-    private TimePicker timePicker;
+    private Button datePickerButton;
+    private TextView selectedDateTimeText;  // TextView to display the selected date and time
+    private String selectedDateTime = ""; // 선택된 날짜 및 시간을 저장할 변수
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_add_schedule_when, container, false);
-
-        // DatePicker와 TimePicker 초기화
-        datePicker = view.findViewById(R.id.datePicker);
-        timePicker = view.findViewById(R.id.timePicker);
-
+        datePickerButton = view.findViewById(R.id.datePickerButton);
+        selectedDateTimeText = view.findViewById(R.id.selectedDateTimeText); // TextView 참조 초기화
+        datePickerButton.setOnClickListener(v -> showDateTimePicker());
         return view;
     }
 
-    public void validateAndProceed() {
-        // 날짜와 시간 유효성 검사를 추가할 수도 있음
-        Toast.makeText(requireContext(), "진료 시간이 저장되었습니다.", Toast.LENGTH_SHORT).show();
+    private void showDateTimePicker() {
+        AddSchedule_TimePickerFragment timePickerFragment = new AddSchedule_TimePickerFragment();
+        timePickerFragment.setTargetFragment(this, 0);
+        timePickerFragment.show(getParentFragmentManager(), "dateTimePicker");
+    }
 
-        // AddSuccessActivity로 이동
-        navigateToAddSuccessActivity();
+    public void onDateTimeSet(String selectedDateTime) {
+        this.selectedDateTime = selectedDateTime; // 선택된 날짜 및 시간 저장
+        selectedDateTimeText.setText(selectedDateTime); // Update the TextView with the selected date and time
+    }
+
+    public void validateAndProceed() {
+        if (selectedDateTime.isEmpty()) {
+            Toast.makeText(getContext(), "날짜와 시간을 선택해주세요.", Toast.LENGTH_LONG).show();
+        } else {
+            navigateToAddSuccessActivity(); // If date and time are set, proceed to the next activity
+        }
     }
 
     private void navigateToAddSuccessActivity() {
-        Intent intent = new Intent(requireActivity(), AddSuccessActivity.class);
-        startActivity(intent);
-        requireActivity().finish(); // AddScheduleActivity 종료
+        ((AddScheduleActivity) getActivity()).navigateToAddSuccessActivity();
     }
 }

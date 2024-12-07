@@ -24,12 +24,12 @@
         android:id="@+id/textViewLabel2"
         style="@style/MedicineLabelStyle"
         android:text="무엇인가요?"
-        android:layout_above="@+id/medicineNameInput"
+        android:layout_above="@+id/departmentNameInput"
         android:layout_alignParentStart="true"/>
 
     <!-- EditText 스타일 변경 -->
     <EditText
-        android:id="@+id/medicineNameInput"
+        android:id="@+id/departmentNameInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="진료과를 입력하세요"
