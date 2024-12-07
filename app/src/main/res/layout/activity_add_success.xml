@@ -41,7 +41,7 @@
         android:layout_marginBottom="35dp"
         android:background="@drawable/today_rectangle"
         android:text="확  인"
-        android:textColor="#3D4146"
+        android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold" />
 </RelativeLayout>
