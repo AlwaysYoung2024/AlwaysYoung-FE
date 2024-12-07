@@ -1,0 +1,38 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <!-- 세로 중앙에 위치하되, 왼쪽 정렬된 LinearLayout -->
+    <LinearLayout
+        android:id="@+id/verticalLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"
+        android:orientation="vertical"
+        android:layout_marginStart="16dp" >
+
+        <!-- 제목 TextView -->
+        <TextView
+            android:id="@+id/textViewLabel"
+            style="@style/MedicineLabelStyle"
+            android:text="언제 진료 보시나요?"
+            android:layout_above="@+id/medicineNameInput"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="0dp"/>
+
+        <!-- 날짜 및 시간 선택 버튼 -->
+        <android.widget.Button
+            android:id="@+id/datePickerButton"
+            android:layout_width="200dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:text="날짜 및 시간 선택"
+            android:textStyle="bold"
+            android:onClick="showDateTimePicker"
+            android:layout_marginTop="16dp"
+            android:textSize="20sp"/>
+    </LinearLayout>
+</RelativeLayout>
