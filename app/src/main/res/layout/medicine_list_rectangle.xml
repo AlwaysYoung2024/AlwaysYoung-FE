@@ -1,0 +1,70 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/medicine_list_rectanglestyle"
+    android:padding="16dp">
+
+    <!-- 상단 컨테이너 -->
+    <LinearLayout
+        android:id="@+id/top_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <!-- 시계 아이콘 -->
+        <ImageView
+            android:id="@+id/icon_medicine_clock"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_medicine_clock"
+            android:contentDescription="시계 아이콘" />
+
+        <!-- 시간 텍스트 -->
+        <TextView
+            android:id="@+id/text_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="09:00"
+            android:textSize="18sp"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+
+        <!-- 약 이름 -->
+        <TextView
+            android:id="@+id/text_medicine_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_weight="1"
+            android:text="위장약"
+            android:textSize="18sp"
+            android:textColor="#000000" />
+
+        <!-- 식전 텍스트 -->
+        <TextView
+            android:id="@+id/text_meal_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="식전"
+            android:textSize="18sp"
+            android:textColor="#000000" />
+    </LinearLayout>
+
+    <!-- 하단 버튼 -->
+    <android.widget.Button
+        android:id="@+id/button_change_time"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@id/top_container"
+        android:layout_marginTop="8dp"
+        android:text="시간 변경하기"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:background="@android:color/transparent"
+        android:backgroundTint="#B2F5EA"/>
+</RelativeLayout>
