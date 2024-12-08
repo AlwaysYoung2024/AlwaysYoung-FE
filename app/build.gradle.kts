@@ -29,13 +29,14 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
     viewBinding{
         enable = true;
     }
 }
 
 dependencies {
-
+    implementation("com.ramotion.paperonboarding:paper-onboarding:1.1.3")
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
