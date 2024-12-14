@@ -36,7 +36,10 @@ android {
 }
 
 dependencies {
-    implementation("com.ramotion.paperonboarding:paper-onboarding:1.1.3")
+    //implementation("com.ramotion.paperonboarding:paper-onboarding:1.1.3")
+    implementation("androidx.viewpager2:viewpager2:1.0.0")
+    implementation ("me.relex:circleindicator:2.1.6")
+    implementation ("com.google.android.material:material:1.4.0")
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
