@@ -14,19 +14,28 @@
 
         <ImageView
             android:id="@+id/image"
-            android:src="@drawable/ic_profile"
-            android:layout_width="150dp"
+            android:src="@drawable/ic_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"/>
+
+        <ImageView
+            android:id="@+id/image2"
+            android:src="@drawable/onboarding_emergency"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/image"
+            android:layout_width="300dp"
             android:layout_height="150dp"
             android:layout_centerHorizontal="true"/>
 
         <TextView
             android:id="@+id/description"
-            android:text="알람을 통해\n자립적인 생활을 도와드려요"
+            android:text="긴급 상황 발생 시\n직접 혹은 자동으로 신고해요"
             android:textStyle="bold"
             android:textSize="24sp"
             android:textColor="#000000"
             android:gravity="center"
-            android:layout_below="@id/image"
+            android:layout_below="@id/image2"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="32dp"
             android:layout_width="wrap_content"

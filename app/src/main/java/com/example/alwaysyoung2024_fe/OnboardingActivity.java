@@ -2,6 +2,7 @@ package com.example.alwaysyoung2024_fe;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import me.relex.circleindicator.CircleIndicator3; // CircleIndicator3로 변경
@@ -60,13 +61,16 @@ public class OnboardingActivity extends AppCompatActivity {
         // 시작하기 버튼을 찾고 클릭 리스너 설정
         startButton = findViewById(R.id.goto_login);
         if (startButton != null) {
-            startButton.setVisibility(View.VISIBLE); // 버튼 보이기
-            startButton.setOnClickListener(v -> {
-                // LoginActivity로 이동
-                Intent loginIntent = new Intent(OnboardingActivity.this, LoginActivity.class);
-                startActivity(loginIntent);
-                finish();
-            });
+            // Handler를 사용하여 1초 지연 후 버튼을 보이게 설정
+            new Handler().postDelayed(() -> {
+                startButton.setVisibility(View.VISIBLE); // 버튼 보이기
+                startButton.setOnClickListener(v -> {
+                    // LoginActivity로 이동
+                    Intent loginIntent = new Intent(OnboardingActivity.this, LoginActivity.class);
+                    startActivity(loginIntent);
+                    finish();
+                });
+            }, 1000); // 1초 후 실행
         }
     }
 

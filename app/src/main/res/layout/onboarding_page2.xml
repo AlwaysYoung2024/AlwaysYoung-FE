@@ -14,10 +14,19 @@
 
         <ImageView
             android:id="@+id/image"
-            android:src="@drawable/wallet"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:src="@drawable/ic_today"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"/>
+
+        <ImageView
+            android:id="@+id/image2"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/image"
+            android:layout_width="300dp"
+            android:layout_height="247dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/onboarding_today" />
 
         <TextView
             android:id="@+id/description"
@@ -26,7 +35,7 @@
             android:textSize="24sp"
             android:textColor="#000000"
             android:gravity="center"
-            android:layout_below="@id/image"
+            android:layout_below="@id/image2"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="32dp"
             android:layout_width="wrap_content"

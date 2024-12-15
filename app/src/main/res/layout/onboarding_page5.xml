@@ -14,17 +14,18 @@
 
         <ImageView
             android:id="@+id/image"
-            android:src="@drawable/logo_white"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_centerHorizontal="true"/>
+            android:layout_width="300dp"
+            android:layout_height="293dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/logo_white" />
 
         <TextView
             android:id="@+id/description"
-            android:text="충격 감지 기능을 통해\n긴급 상황을 감지하고 신고해요"
+            android:text="매일의 건강, 손끝하나로.\n'매일 회춘'과 시작해요!"
             android:textStyle="bold"
             android:textSize="24sp"
             android:textColor="#000000"
+            android:letterSpacing="0.1"
             android:gravity="center"
             android:layout_below="@id/image"
             android:layout_centerHorizontal="true"
