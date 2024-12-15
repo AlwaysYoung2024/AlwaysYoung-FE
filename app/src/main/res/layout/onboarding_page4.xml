@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_color">
+
+    <!-- 이미지와 텍스트를 포함하는 내부 RelativeLayout -->
+    <RelativeLayout
+        android:id="@+id/image_text_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"> <!-- 부모의 중앙에 배치 -->
+
+        <ImageView
+            android:id="@+id/image"
+            android:src="@drawable/ic_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"/>
+
+        <ImageView
+            android:id="@+id/image2"
+            android:src="@drawable/onboarding_emergency"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/image"
+            android:layout_width="300dp"
+            android:layout_height="390dp"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/description"
+            android:text="긴급 상황 발생 시\n직접 혹은 자동으로 신고해요"
+            android:textStyle="bold"
+            android:textSize="24sp"
+            android:textColor="#000000"
+            android:gravity="center"
+            android:layout_below="@id/image2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="32dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="@color/main_color"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp">
+
+        <View
+            android:id="@+id/dot1"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_margin="6dp"
+            android:background="@drawable/circle_inactive" />
+
+        <View
+            android:id="@+id/dot2"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_margin="6dp"
+            android:background="@drawable/circle_inactive" />
+
+        <View
+            android:id="@+id/dot3"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_margin="6dp"
+            android:background="@drawable/circle_inactive" />
+
+        <View
+            android:id="@+id/dot4"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_margin="6dp"
+            android:background="@drawable/circle_active" />
+
+        <View
+            android:id="@+id/dot5"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_margin="6dp"
+            android:background="@drawable/circle_inactive" />
+    </LinearLayout>
+
+</RelativeLayout>
