@@ -31,6 +31,8 @@ public class OnboardingActivity extends AppCompatActivity {
         List<Integer> layouts = new ArrayList<>();
         layouts.add(R.layout.onboarding_page1);
         layouts.add(R.layout.onboarding_page2);
+        layouts.add(R.layout.onboarding_page3);
+        layouts.add(R.layout.onboarding_page4);
         layouts.add(R.layout.onboarding_page5);
 
         adapter = new OnboardingAdapter(this, layouts);
